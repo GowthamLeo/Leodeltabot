@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: short-strangle-bot
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python main.py"
+    envVars:
+      - key: DELTA_API_KEY
+        sync: false
+      - key: DELTA_API_SECRET
+        sync: false
+      - key: SPOT_ASSET
+        value: BTCUSD
+      - key: NUM_LOTS
+        value: "1"
+      - key: STOP_LOSS_MULTIPLIER
+        value: "1.0"
+      - key: HOST
+        value: "0.0.0.0"
+      - key: PORT
+        value: "10000"
